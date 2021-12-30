@@ -1,0 +1,16 @@
+{
+  // 设置路径别名
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"],
+      "@components/*": ["./src/components/*"],
+      "@pages/*": ["src/pages/*"],
+      "@utils/*": ["src/utils/*"],
+      "@assets/*": ["src/assets/*"],
+      "@router": ["src/router"],
+      "@api/*": ["src/api/*"]
+    }
+  },
+  "exclude": ["node_modules", "dist"]
+}

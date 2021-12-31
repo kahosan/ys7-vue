@@ -13,7 +13,7 @@
           <p>{{ passwordTip }}</p>
         </div>
         <div class="submit">
-          <input type="submit" value="登入" @click="login" />
+          <button @click="login">登入</button>
         </div>
       </div>
     </div>

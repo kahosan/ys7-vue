@@ -2,6 +2,7 @@ import { reactive, toRefs, watch } from 'vue';
 import router from '@router';
 import { request } from '@/utils/request';
 import { encryptMD5 } from '@/utils/encrypt';
+import store from '@/store/store';
 
 const data = reactive({
   username: '',
@@ -41,7 +42,7 @@ const login = () => {
       })
       .then(res => {
         if (res.status === 200) {
-          window.localStorage.setItem('userName', data.username);
+          store.setUserName(data.username);
 
           router.push('/');
         } else {

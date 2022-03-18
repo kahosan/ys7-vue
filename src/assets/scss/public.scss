@@ -3,11 +3,75 @@
   --macOS-font: -apple-system, BlinkMacSystemFont, Segoe UI, Helvetica, Arial, 'PingFang SC', sans-serif;
 }
 
-
 .clearfix {
   &::after {
     content: '';
     display: block;
     clear: both;
   }
+}
+
+html {
+  /* 标准字体大小可以，在移动端使用的rem适配的话会动态改变。 */
+  font-size: 14px;
+  /*  使用IE盒模型（个人取舍，我一般设置width是这是盒子的真实大小，包括padding和border） */
+  box-sizing: border-box;
+}
+
+html,
+body {
+  /* 与浏览器窗口高度一致 */
+  height: 100%;
+}
+
+body {
+  /* 有些背景默认为浅灰色，所以统一设置为纯白 */
+  background: #fff;
+  /* 照着antd上面来的，在公司就别用微软雅黑了，不建议字体使用rem。 */
+  font: 14px, -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif,
+    'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol';
+  /* 使字体更加顺滑 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body,
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+dl,
+dd,
+ul,
+ol,
+th,
+td,
+button,
+figure,
+input,
+textarea,
+form,
+pre,
+blockquote,
+figure {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  /* 小手 */
+  cursor: pointer;
+  /* 取消超链接的默认下划线 */
+  text-decoration: none;
+  /* antd里面还做了 ， 看你团队需不需要这样的风格 */
+  transition: color 0.3s ease;
+}
+
+ol,
+ul {
+  /* 去除自带的ugly样式。 */
+  list-style: none;
 }

@@ -9,7 +9,6 @@
       "@utils/*": ["src/utils/*"],
       "@assets/*": ["src/assets/*"],
       "@router": ["src/router"],
-      "@api/*": ["src/api/*"]
     }
   },
   "exclude": ["node_modules", "dist"]

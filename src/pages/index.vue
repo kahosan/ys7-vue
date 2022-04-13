@@ -1,6 +1,7 @@
 <template>
-  <div id="home">
-    <Header></Header>
+  <Header></Header>
+  <div class="row">
+    <router-view></router-view>
   </div>
 </template>
 

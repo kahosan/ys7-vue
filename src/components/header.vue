@@ -1,16 +1,18 @@
 <template>
-  <div id="header" class="header">
-    <div id="topNav" class="nav">
-      <ul>
-        <li id="logo">
-          <img src="" alt="这里插入 LOGO" />
-        </li>
-        <li id="logout">
-          <n-dropdown :options="options" @select="handleSelect">
-            <n-button>{{ userName }}</n-button>
-          </n-dropdown>
-        </li>
-      </ul>
+  <div class="header">
+    <div class="header-nav flex-nowrap">
+      <div class="lg-navbar">
+        <a href="/ys7"><img src="@assets/img/Logo.svg" alt="LOGO" /></a>
+      </div>
+      <div class="navbar-collapse">
+        <router-link to="/ys7" class="navlink">萤石云</router-link>
+        <router-link to="/rootcloud" class="navlink">根云</router-link>
+      </div>
+      <div class="pl-12">
+        <n-dropdown :options="options" @select="handleSelect">
+          <n-button color="#2f4f4f">{{ userName }}</n-button>
+        </n-dropdown>
+      </div>
     </div>
   </div>
 </template>
@@ -21,6 +23,5 @@
 
 <script setup>
   import nav from '@components/common/header/useNav';
-
-  const { options, userName, handleSelect, jumpHome } = nav();
+  const { options, userName, handleSelect } = nav();
 </script>

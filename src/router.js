@@ -9,6 +9,20 @@ const routes = [
     name: 'index',
     meta: { requiresAuth: true },
     component: () => import('@pages/index.vue'),
+    children: [
+      {
+        path: 'rootcloud',
+        name: 'rootcloud',
+        meta: { requiresAuth: true },
+        component: () => import('@pages/root-cloud.vue'),
+      },
+      {
+        path: 'ys7',
+        name: 'ys7',
+        meta: { requiresAuth: true },
+        component: () => import('@pages/ys7.vue'),
+      },
+    ],
   },
   {
     path: '/login',
@@ -26,8 +40,11 @@ export default route;
 
 route.beforeEach((to, from) => {
   if (to.name === 'login' && handleCookie.get('token')) {
-    route.push('/');
-  } else if (to.meta.requiresAuth && !handleCookie.get('token')) {
+    route.push('/ys7');
+  }
+
+  if (to.meta.requiresAuth && !handleCookie.get('token')) {
+    console.log('token not found');
     route.push('/login');
   }
 });

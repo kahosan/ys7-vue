@@ -1,6 +1,8 @@
 {
   // 设置路径别名
   "compilerOptions": {
+    "allowJs": true,
+    "jsx":"preserve",
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"],

@@ -15,8 +15,6 @@
           >
         </n-input-group>
       </div>
-      sadasds
-
       <section class="px-auto mt-30 flex flex-wrap justify-center">
         <div v-show="!searchFlag" v-for="item in cameraList" :key="item.id">
           <cameraPreview :cameraInfo="item"></cameraPreview>
@@ -26,7 +24,7 @@
         </div>
         <!-- <i v-for="i in 4" :key="i" class="w-10 mr-10"> </i> -->
       </section>
-      <n-pagination v-model:page="pageStart" :page-count="pageSize" :page-slot="5" :default-page="0" :onUpdate:page="getCameraList" show-quick-jumper class="justify-center">
+      <n-pagination v-model:page="pageStart" :page-count="pageCount" :page-slot="5" :onUpdate:page="getCameraList" show-quick-jumper class="justify-center">
         <template #goto> 跳至 </template>
       </n-pagination>
     </div>
@@ -38,21 +36,17 @@
 </style>
 
 <script setup>
-  import { searchResult, searchCamera, key, searchFlag } from '@components/common/camera/cameraSearch';
   import cameraPreview from '@/components/camera-preview.vue';
-  import { cameraList, page, getCameraList } from '@/components/common/camera/cameraList';
-  import { ref } from 'vue';
+  import { searchResult, searchCamera, key, searchFlag } from '@components/common/camera/cameraSearch';
+  import { getCameraList } from '@/components/common/camera/cameraList';
+  import { toRefs } from 'vue';
 
-  getCameraList();
+  const { cameraList, page } = getCameraList();
 
-  const pageStart = ref(0);
-  const pageSize = ref(0);
-
-  pageStart.value = page.value.page;
-  pageSize.value = Math.ceil(page.value.total / page.value.size);
+  const { pageStart, pageCount } = toRefs(page);
 
   const initPage = () => {
     pageStart.value = 0;
-    pageSize.value = 0;
+    pageCount.value = 0;
   };
 </script>

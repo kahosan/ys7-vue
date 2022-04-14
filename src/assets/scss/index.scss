@@ -17,11 +17,6 @@ body {
   .navlink {
     font-size: 1.2rem;
     font-weight: 600;
-    color: var(--link-color);
-
-    &:hover {
-      color: var(--link-hover-color);
-    }
   }
 }
 

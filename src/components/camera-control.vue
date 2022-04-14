@@ -1,10 +1,11 @@
 <template>
-  <div>{{ picUrl }}</div>
+  <div>{{ cameraInfo }}</div>
 </template>
 
 <script setup>
-  const props = defineProps(['cameraInfo']);
-  const cameraInfo = props.cameraInfo;
+  import { useRoute } from 'vue-router';
 
-  console.log(cameraInfo.picUrl);
+  const cameraInfo = useRoute().params;
+
+  console.log(cameraInfo);
 </script>

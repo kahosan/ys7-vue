@@ -63,15 +63,18 @@ figure {
   padding: 0;
 }
 
-/* a {
-  小手
+a {
   cursor: pointer;
-  取消超链接的默认下划线
   text-decoration: none;
-  antd里面还做了 ， 看你团队需不需要这样的风格
   transition: color 0.3s ease;
+  color: var(--link-color);
 }
 
+a:hover {
+  color: var(--link-hover-color);
+}
+
+/*
 ol,
 ul {
   去除自带的ugly样式。

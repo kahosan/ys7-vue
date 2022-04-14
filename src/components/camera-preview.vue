@@ -5,7 +5,7 @@
       <div id="onlineStatus" class="pb-5">
         {{ cameraStatus }}
       </div>
-      <router-link to="/ys7">跳转控制台</router-link>
+      <router-link :to="{ name: 'deviceIndex', params: { deviceSerial, ...cameraInfo } }" class="">跳转控制台</router-link>
     </n-card>
   </div>
 </template>
@@ -24,6 +24,7 @@
 
   const capture = getCameraCapture(cameraInfo.deviceSerial);
   const cameraStatus = getCameraStatus(cameraInfo.status);
+  const deviceSerial = cameraInfo.deviceSerial;
 
   const cameraName = cameraInfo.channelName;
 </script>

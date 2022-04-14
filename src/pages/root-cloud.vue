@@ -1,4 +1,4 @@
 <template>
-  <div>asdasd</div>
+  <div>rootCloud</div>
 </template>
 <script setup></script>

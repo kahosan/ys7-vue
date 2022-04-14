@@ -1,7 +1,7 @@
 <template>
   <div class="header">
     <div class="header-nav flex-nowrap">
-      <div class="lg-navbar">
+      <div class="lg-navbar inline-block leading-none">
         <a href="/ys7"><img src="@assets/img/Logo.svg" alt="LOGO" /></a>
       </div>
       <div class="navbar-collapse">

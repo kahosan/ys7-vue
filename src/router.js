@@ -22,6 +22,12 @@ const routes = [
         meta: { requiresAuth: true },
         component: () => import('@pages/ys7.vue'),
       },
+      {
+        path: 'ys7/:deviceSerial',
+        name: 'deviceIndex',
+        meta: { requiresAuth: true },
+        component: () => import('@components/camera-control.vue'),
+      },
     ],
   },
   {

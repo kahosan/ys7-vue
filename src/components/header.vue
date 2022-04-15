@@ -17,11 +17,11 @@
   </div>
 </template>
 
-<style lang="scss">
-  @import '@assets/scss/index.scss';
-</style>
-
 <script setup>
   import nav from '@components/common/header/useNav';
   const { options, userName, handleSelect } = nav();
 </script>
+
+<style lang="scss">
+  @import '@assets/scss/index.scss';
+</style>

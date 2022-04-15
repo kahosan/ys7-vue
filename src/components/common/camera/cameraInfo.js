@@ -24,4 +24,8 @@ function getCameraStatus(status) {
   return obj[status];
 }
 
+function getCameraLive(deviceSerial) {
+  request.post('/api/live', { deviceSerial }).then(res => {});
+}
+
 export { getCameraCapture, getCameraStatus };

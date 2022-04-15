@@ -11,29 +11,26 @@
               searchCamera();
               initPage();
             "
-            >搜索</n-button
           >
+            搜索
+          </n-button>
         </n-input-group>
       </div>
       <section class="px-auto mt-30 flex flex-wrap justify-center">
-        <div v-show="!searchFlag" v-for="item in cameraList" :key="item.id">
-          <cameraPreview :cameraInfo="item"></cameraPreview>
+        <div v-for="item in cameraList" v-show="!searchFlag" :key="item.id">
+          <cameraPreview :camera-info="item" />
         </div>
-        <div v-show="searchFlag" v-for="item in searchResult" :key="item.id">
-          <cameraPreview :cameraInfo="item"></cameraPreview>
+        <div v-for="item in searchResult" v-show="searchFlag" :key="item.id">
+          <cameraPreview :camera-info="item" />
         </div>
         <!-- <i v-for="i in 4" :key="i" class="w-10 mr-10"> </i> -->
       </section>
-      <n-pagination v-model:page="pageStart" :page-count="pageCount" :page-slot="5" :onUpdate:page="getCameraList" show-quick-jumper class="justify-center">
+      <n-pagination v-model:page="pageStart" :page-count="pageCount" :page-slot="5" :on-update:page="getCameraList" show-quick-jumper class="justify-center">
         <template #goto> 跳至 </template>
       </n-pagination>
     </div>
   </div>
 </template>
-
-<style>
-  @import '@assets/scss/ys7.scss';
-</style>
 
 <script setup>
   import cameraPreview from '@/components/camera-preview.vue';
@@ -50,3 +47,7 @@
     pageCount.value = 0;
   };
 </script>
+
+<style>
+  @import '@assets/scss/ys7.scss';
+</style>

@@ -25,7 +25,21 @@ function getCameraStatus(status) {
 }
 
 function getCameraLive(deviceSerial) {
-  request.post('/api/live', { deviceSerial }).then(res => {});
+  return new Promise((resolve, reject) => {
+    request
+      .post('/api/live', { deviceSerial })
+      .then(res => resolve(res.data))
+      .catch(err => reject(err));
+  });
 }
 
-export { getCameraCapture, getCameraStatus };
+function getToken() {
+  return new Promise((resolve, reject) => {
+    request
+      .get('/api/token')
+      .then(res => resolve(res.data))
+      .catch(err => reject(err));
+  });
+}
+
+export { getCameraCapture, getCameraStatus, getToken, getCameraLive };

@@ -12,7 +12,7 @@
 
 <script setup>
   import { getCameraCapture, getCameraStatus } from '@/components/common/camera/cameraInfo';
-  import { reactive, defineProps } from 'vue';
+  import { toRefs } from 'vue';
 
   const props = defineProps({
     cameraInfo: {
@@ -20,13 +20,13 @@
       required: true,
     },
   });
-  const cameraInfo = reactive(props.cameraInfo);
 
-  const capture = getCameraCapture(cameraInfo.deviceSerial);
-  const cameraStatus = getCameraStatus(cameraInfo.status);
-  const deviceSerial = cameraInfo.deviceSerial;
+  const { deviceSerial, status, deviceName } = toRefs(props.cameraInfo);
 
-  const cameraName = cameraInfo.channelName;
+  const capture = getCameraCapture(deviceSerial.value);
+  const cameraStatus = getCameraStatus(status.value);
+
+  const cameraName = deviceName.value;
 </script>
 
 <style lang="scss">

@@ -11,7 +11,8 @@
       "@utils/*": ["src/utils/*"],
       "@assets/*": ["src/assets/*"],
       "@router": ["src/router"],
-    }
+    },
+    "types": ["naive-ui/volar"]
   },
   "exclude": ["node_modules", "dist"]
 }

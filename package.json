@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "crypto-js": "^4.1.1",
+    "ezuikit-js": "^0.5.2",
     "qs": "^6.10.3",
     "vue": "^3.2.31",
     "vue-router": "^4.0.14"

@@ -9,6 +9,7 @@ specifiers:
   eslint-config-prettier: ^8.5.0
   eslint-plugin-prettier: ^4.0.0
   eslint-plugin-vue: ^8.6.0
+  ezuikit-js: ^0.5.2
   naive-ui: ^2.28.0
   prettier: ^2.6.2
   qs: ^6.10.3
@@ -24,6 +25,7 @@ specifiers:
 
 dependencies:
   crypto-js: 4.1.1
+  ezuikit-js: 0.5.2
   qs: 6.10.3
   vue: 3.2.32
   vue-router: 4.0.14_vue@3.2.32
@@ -1071,6 +1073,10 @@ packages:
   /evtd/0.2.3:
     resolution: {integrity: sha512-tmiT1YUVqFjTY+BSBOAskL83xNx41iUfpvKP6Gcd/xMHjg3mnER98jXGXJyKnxCG19uPc6EhZiUC+MUyvoqCtw==}
     dev: true
+
+  /ezuikit-js/0.5.2:
+    resolution: {integrity: sha512-jeERhoJEIRlhT5XlgR8XEt78gvJLB+v93ykrr+k7miV/nT5/SKesQgMfbdr161y6M5VFRdBU5RSsX8updT+j0w==}
+    dev: false
 
   /fast-deep-equal/3.1.3:
     resolution: {integrity: sha512-f3qQ9oQy9j2AhBe/H9VC91wLmKBCCU/gDOnKNAYG5hswO7BLKj09Hc5HYNz9cGI++xlpDCIgDaitVs03ATR84Q==}

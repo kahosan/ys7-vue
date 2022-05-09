@@ -1,10 +1,10 @@
 <template>
-  <h2 class="mt-5 ml-20">
+  <h2 class="mt-5 ml-5 sm:ml-20">
     {{ cameraName ?? 'undefined' }}
   </h2>
-  <div id="cameraVideo" class="flex ml-20 mt-3">
+  <div id="cameraVideo" class="flex ml-5 sm:ml-20 mt-3">
     <div id="video-container"></div>
-    <div class="ml-5 mt-2 px-5 rounded-xl bt">
+    <div class="ml-5 mt-2 px-5 rounded-xl bt <sm:hidden">
       <n-button type="primary" @click="changeNameShow = true">更改名称</n-button>
       <n-modal
         v-model:show="changeNameShow"
@@ -92,7 +92,7 @@
   import { useRoute } from 'vue-router';
   import { useNotification } from 'naive-ui';
   import { getToken, getCameraLive } from '@components/common/camera/cameraInfo';
-  import { createVideo } from '@components/common/camera/cameraVideo';
+  import { createVideo, jumpControl } from '@components/common/camera/cameraVideo';
   import { changeName, encryptCamera, decryptCamera } from '@components/common/camera/cameraControl';
   import { ref } from 'vue';
 
@@ -107,7 +107,13 @@
   let newName = ref('');
 
   const promise = Promise.all([getToken(), getCameraLive(deviceSerial)]).then(([token, liveUrl]) => {
-    return createVideo(token, liveUrl);
+    const isMobile = 'ontouchstart' in document.documentElement;
+
+    if (isMobile) {
+      jumpControl(deviceSerial);
+    } else {
+      return createVideo(token, liveUrl);
+    }
   });
 
   const destroyVideo = () => {

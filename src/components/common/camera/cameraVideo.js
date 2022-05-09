@@ -1,15 +1,12 @@
+import { request } from '@/utils/request';
 import EZUIKit from 'ezuikit-js';
 
 function getWidth() {
-  const client = document.getElementsByTagName('body')[0].clientWidth;
-
-  return client >= 1920 ? 1280 : client >= 1280 ? 960 : client >= 960 ? 640 : client >= 640 ? 480 : 320;
+  return window.innerWidth;
 }
 
 function getHeight() {
-  const client = document.getElementsByTagName('body')[0].clientHeight;
-
-  return client >= 1080 ? 720 : client >= 720 ? 480 : client >= 480 ? 360 : 360;
+  return window.innerHeight;
 }
 
 function createVideo(token, liveUrl) {
@@ -18,11 +15,15 @@ function createVideo(token, liveUrl) {
     accessToken: token,
     url: liveUrl,
     template: 'pcLive',
-    width: getWidth(),
-    height: getHeight(),
+    width: getWidth() - 400,
+    height: getHeight() - 200,
   });
 }
 
-console.log(getWidth());
+async function jumpControl(deviceSerial) {
+  window.location.href = `https://open.ys7.com/jssdk/theme/h5/live.html?deviceSerial=${deviceSerial}&channelNo=1&accessToken=${
+    (await request.get('/api/token')).data
+  }`;
+}
 
-export { createVideo };
+export { createVideo, jumpControl };

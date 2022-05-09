@@ -25,7 +25,14 @@
         </div>
         <!-- <i v-for="i in 4" :key="i" class="w-10 mr-10"> </i> -->
       </section>
-      <n-pagination v-model:page="pageStart" :page-count="pageCount" :page-slot="5" :on-update:page="getCameraList" show-quick-jumper class="justify-center">
+      <n-pagination
+        v-model:page="pageStart"
+        :page-count="pageCount"
+        :page-slot="5"
+        :on-update:page="getCameraList"
+        show-quick-jumper
+        class="justify-center"
+      >
         <template #goto> 跳至 </template>
       </n-pagination>
     </div>

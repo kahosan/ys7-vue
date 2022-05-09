@@ -8,7 +8,7 @@ import qs from 'qs'; //引入qs，用来序列化post类型的数据，否则后
 axios.defaults.withCredentials = true;
 
 // 设置统一请求 URL
-axios.defaults.baseURL = 'http://192.168.0.106:8080';
+axios.defaults.baseURL = 'http://localhost:8080';
 
 // 创建axios实例，请求超时时间为300秒
 const instance = axios.create({

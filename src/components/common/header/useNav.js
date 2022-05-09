@@ -4,7 +4,7 @@ import { LogOutOutline as LogoutIcon } from '@vicons/ionicons5';
 import handleCookie from '@/utils/cookie';
 import store from '@/store/store';
 
-const userName = store.state.userName;
+const username = store.state.username;
 
 const renderIcon = icon => {
   return () => {
@@ -36,7 +36,7 @@ function handleSelect(key) {
 
 function useNav() {
   return {
-    userName,
+    username,
     options,
     handleSelect,
   };

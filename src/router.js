@@ -1,8 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import handleCookie from './utils/cookie';
 
-const layoutMap = [];
-
 const routes = [
   {
     path: '/',
@@ -42,10 +40,8 @@ const route = new createRouter({
   routes: routes,
 });
 
-export default route;
-
-route.beforeEach((to, from) => {
-  if (to.name === 'login' && handleCookie.get('token')) {
+route.beforeEach(to => {
+  if ((to.name === 'login' || to.name === '/') && handleCookie.get('token')) {
     route.push('/ys7');
   }
 
@@ -54,3 +50,5 @@ route.beforeEach((to, from) => {
     route.push('/login');
   }
 });
+
+export default route;

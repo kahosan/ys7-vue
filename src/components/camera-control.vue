@@ -1,6 +1,6 @@
 <template>
   <h2 class="mt-5 ml-20">
-    {{ cameraName ?? 'undefinde' }}
+    {{ cameraName ?? 'undefined' }}
   </h2>
   <div id="cameraVideo" class="flex ml-20 mt-3">
     <div id="video-container"></div>
@@ -97,16 +97,16 @@
   import { ref } from 'vue';
 
   const notification = useNotification();
-  const cameraInfo = useRoute().params;
+  const cameraInfo = useRoute().query;
   const deviceSerial = cameraInfo.deviceSerial;
-  let cameraName = ref(cameraInfo.deviceName);
+  const cameraName = ref(cameraInfo.deviceName);
 
   const changeNameShow = ref(false);
   const encryptCameraShow = ref(false);
   const decryptCameraShow = ref(false);
   let newName = ref('');
 
-  const promise = Promise.all([getToken(), getCameraLive(cameraInfo.deviceSerial)]).then(([token, liveUrl]) => {
+  const promise = Promise.all([getToken(), getCameraLive(deviceSerial)]).then(([token, liveUrl]) => {
     return createVideo(token, liveUrl);
   });
 

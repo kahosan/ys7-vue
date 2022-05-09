@@ -2,7 +2,7 @@
   <div class="header">
     <div class="header-nav flex-nowrap">
       <div class="lg-navbar inline-block leading-none">
-        <a href="/ys7"><img src="@assets/img/Logo.svg" alt="LOGO" /></a>
+        <a href="/ys7"><img src="@assets/img/logo.svg" alt="LOGO" /></a>
       </div>
       <div class="navbar-collapse">
         <router-link to="/ys7" class="navlink">萤石云</router-link>
@@ -10,7 +10,7 @@
       </div>
       <div class="pl-12">
         <n-dropdown :options="options" @select="handleSelect">
-          <n-button color="#2f4f4f">{{ userName }}</n-button>
+          <n-button color="#2f4f4f">{{ username }}</n-button>
         </n-dropdown>
       </div>
     </div>
@@ -19,7 +19,7 @@
 
 <script setup>
   import nav from '@components/common/header/useNav';
-  const { options, userName, handleSelect } = nav();
+  const { options, username, handleSelect } = nav();
 </script>
 
 <style lang="scss">

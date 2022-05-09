@@ -5,7 +5,9 @@
       <div id="onlineStatus" class="pb-5">
         {{ cameraStatus }}
       </div>
-      <router-link :to="{ name: 'deviceIndex', params: { deviceSerial, ...cameraInfo } }" class="">跳转控制台</router-link>
+      <router-link :to="{ name: 'deviceIndex', params: { deviceSerial }, query: { ...cameraInfo } }" class=""
+        >跳转控制台</router-link
+      >
     </n-card>
   </div>
 </template>

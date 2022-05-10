@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-  import { getCameraCapture, getCameraStatus } from '@/components/common/camera/cameraInfo';
+  import { getCameraCapture, getCameraStatus } from '@/components/camera/use/cameraInfo';
   import { toRefs } from 'vue';
 
   const props = defineProps({

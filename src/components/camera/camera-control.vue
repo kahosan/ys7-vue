@@ -91,9 +91,9 @@
 <script setup>
   import { useRoute } from 'vue-router';
   import { useNotification } from 'naive-ui';
-  import { getToken, getCameraLive } from '@components/common/camera/cameraInfo';
-  import { createVideo, jumpControl } from '@components/common/camera/cameraVideo';
-  import { changeName, encryptCamera, decryptCamera } from '@components/common/camera/cameraControl';
+  import { getToken, getCameraLive } from '@components/camera/use/cameraInfo';
+  import { createVideo, jumpControl } from '@components/camera/use/cameraVideo';
+  import { changeName, encryptCamera, decryptCamera } from '@components/camera/use/cameraControl';
   import { ref } from 'vue';
 
   const notification = useNotification();

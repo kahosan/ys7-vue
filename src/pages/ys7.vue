@@ -40,9 +40,9 @@
 </template>
 
 <script setup>
-  import cameraPreview from '@/components/camera-preview.vue';
-  import { searchResult, searchCamera, key, searchFlag } from '@components/common/camera/cameraSearch';
-  import { getCameraList } from '@/components/common/camera/cameraList';
+  import cameraPreview from '@/components/camera/camera-preview.vue';
+  import { searchResult, searchCamera, key, searchFlag } from '@components/camera/use/cameraSearch';
+  import { getCameraList } from '@/components/camera/use/cameraList';
   import { toRefs } from 'vue';
 
   const { cameraList, page } = getCameraList();

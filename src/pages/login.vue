@@ -12,8 +12,8 @@
         :rules="rules"
         @keyup.enter="handleSubmit"
       >
-        <n-form-item path="username">
-          <n-input v-model:value="loginForm.username" placeholder="请输入用户名">
+        <n-form-item path="userName">
+          <n-input v-model:value="loginForm.userName" placeholder="请输入用户名">
             <template #prefix>
               <n-icon size="18" color="#808695">
                 <PersonOutline />
@@ -40,11 +40,11 @@
 </template>
 
 <script setup>
-  import { changeBodyColor, handleLogin } from '@/components/common/login/useLogin';
+  import { changeBodyColor, handleLogin } from '@/components/login/useLogin';
   import store from '@/store/store';
   import { PersonOutline, LockClosedOutline } from '@vicons/ionicons5';
   import { useMessage } from 'naive-ui';
-  import { onMounted, reactive, ref } from 'vue';
+  import { onMounted, reactive, ref, toRef } from 'vue';
   import { useRouter } from 'vue-router';
 
   onMounted(() => {
@@ -56,27 +56,28 @@
   const rememberPw = ref(true);
   const message = useMessage();
   const router = useRouter();
-  const loginForm = reactive({ username: '', password: '' });
+  const loginForm = reactive({ userName: '', password: '' });
 
   const rules = {
-    username: { required: true, message: '请输入账号呀', trigger: 'blur' },
+    userName: { required: true, message: '请输入账号呀', trigger: 'blur' },
     password: { required: true, message: '嗯？你没输入密码么？', trigger: 'blur' },
   };
 
   if (rememberPw.value) {
-    loginForm.username = store.state.username ?? '';
-    loginForm.password = store.state.userpassword ?? '';
+    loginForm.userName = toRef(store.state, 'userName').value ?? '';
+    loginForm.password = toRef(store.state, 'userPassword').value ?? '';
   }
 
   function handleSubmit(e) {
     e.preventDefault();
     loding.value = true;
+
     formRef.value?.validate(errors => {
       if (!errors) {
         handleLogin(loginForm)
           .then(() => {
-            store.setUserName(loginForm.username);
-            store.setUserPassword(loginForm.password);
+            store.setuserName(loginForm.userName);
+            store.setuserPassword(loginForm.password);
             message.success('登入成功');
             router.push('/ys7');
           })

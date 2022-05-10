@@ -1,27 +1,28 @@
 import handleLs from '@/utils/localStorage';
+import { reactive } from 'vue';
 
 const store = {
   debug: false,
-  state: {
-    username: handleLs.get('username'),
-    userpassword: handleLs.get('userpassword'),
-  },
+  state: reactive({
+    userName: handleLs.get('userName'),
+    userPassword: handleLs.get('userPassword'),
+  }),
 
-  setUserName(name) {
-    if (this.debug) console.log('setUserNameAction triggered with ', name);
-    handleLs.set('username', name);
+  setuserName(name) {
+    if (this.debug) console.log('setuserNameAction triggered with ', name);
+    handleLs.set('userName', name);
   },
-  clearUserName() {
-    if (this.debug) console.log('clearUserNameAction triggered');
-    handleLs.remove('username');
+  clearuserName() {
+    if (this.debug) console.log('clearuserNameAction triggered');
+    handleLs.remove('userName');
   },
-  setUserPassword(password) {
-    if (this.debug) console.log('setUserNameAction triggered with ', password);
-    handleLs.set('userpassword', password);
+  setuserPassword(password) {
+    if (this.debug) console.log('setuserNameAction triggered with ', password);
+    handleLs.set('userPassword', password);
   },
-  clearUserPassword() {
-    if (this.debug) console.log('clearUserNameAction triggered');
-    handleLs.remove('userpassword');
+  clearuserPassword() {
+    if (this.debug) console.log('clearuserNameAction triggered');
+    handleLs.remove('userPassword');
   },
 };
 

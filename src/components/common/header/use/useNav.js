@@ -3,8 +3,9 @@ import { NIcon } from 'naive-ui';
 import { LogOutOutline as LogoutIcon } from '@vicons/ionicons5';
 import handleCookie from '@/utils/cookie';
 import store from '@/store/store';
+import { toRef } from 'vue';
 
-const username = store.state.username;
+const userName = toRef(store.state, 'userName');
 
 const renderIcon = icon => {
   return () => {
@@ -36,7 +37,7 @@ function handleSelect(key) {
 
 function useNav() {
   return {
-    username,
+    userName,
     options,
     handleSelect,
   };

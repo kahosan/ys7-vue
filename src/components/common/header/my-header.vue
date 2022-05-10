@@ -10,7 +10,7 @@
       </div>
       <div class="pl-12">
         <n-dropdown :options="options" @select="handleSelect">
-          <n-button color="#2f4f4f">{{ username }}</n-button>
+          <n-button color="#2f4f4f">{{ userName }}</n-button>
         </n-dropdown>
       </div>
     </div>
@@ -18,8 +18,8 @@
 </template>
 
 <script setup>
-  import nav from '@components/common/header/useNav';
-  const { options, username, handleSelect } = nav();
+  import nav from '@components/common/header/use/useNav';
+  const { options, userName, handleSelect } = nav();
 </script>
 
 <style lang="scss">

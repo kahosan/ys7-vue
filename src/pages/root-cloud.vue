@@ -1,4 +1,7 @@
 <template>
-  <div>rootCloud</div>
+  <devicePreview />
 </template>
-<script setup></script>
+
+<script setup>
+  import devicePreview from '@/components/device/device-preview.vue';
+</script>
